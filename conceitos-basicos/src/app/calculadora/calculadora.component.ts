@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-calculadora',
-  imports: [ FormsModule ],
+  imports: [ FormsModule, CommonModule ],
   templateUrl: './calculadora.component.html',
   styleUrl: './calculadora.component.scss'
 })

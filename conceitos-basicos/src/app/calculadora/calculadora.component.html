@@ -11,9 +11,20 @@
             <button type="submit">Somar</button>
         </form>
 
-        <div class="result-display">
-            <p>Resultado: <span id="result"> {{ resultado }} </span></p>
+        <div class="result-display" *ngIf="resultado">
+            <p>Seu resultado está abaixo:</p>
         </div>
+
+        @if(resultado){ <!-- resultado != 0 && resultado != undefined && resultado != null && resultado != false-->  
+            <div class="result-display">
+                <p>Resultado: <span id="result"> {{ resultado }} </span></p>
+            </div>
+        } @else {
+            <div class="result-display">
+                <p>Seu resultado é zero.</p>
+            </div>
+        }
+
 
     </div>
 </div>
