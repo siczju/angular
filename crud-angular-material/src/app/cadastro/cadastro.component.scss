@@ -1,0 +1,30 @@
+.cadastro-container {
+	display: flex;
+	justify-content: center;
+	padding: 0 16px;
+}
+
+.cadastro-column {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1000px;
+}
+
+.cadastro-fields {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 800px;
+}
+
+.form-row {
+	display: flex;
+	gap: 16px;
+}
+
+@media (max-width: 600px) {
+	.form-row {
+		flex-direction: column;
+	}
+}
