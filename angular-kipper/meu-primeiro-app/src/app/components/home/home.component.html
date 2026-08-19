@@ -1,0 +1,20 @@
+<h1>{{minhaPropsDeFora}}</h1>
+
+
+<p>Oi {{ name }}</p>
+
+<button (click)="submit()">Clique</button>
+
+<h1 *ngIf="deveMostrarTitulo">Meu titulo com a diretiva</h1>
+
+@if(deveMostrarTitulo){
+    <h1>Meu titulo sem diretiva</h1>
+}@else{
+    <h1>Não foi verdadeiro</h1>
+}
+
+@for(item of listItems; track item){ <!-- track ajuda a renderizar a lista-->
+    <p>{{ item }}</p>
+}
+
+<p *ngFor="let item of listItems">{{ item }}</p>
