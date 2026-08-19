@@ -12,22 +12,22 @@
                     
                     <mat-form-field class="full-width">
                         <mat-label>Nome: *</mat-label>
-                        <input type="text" placeholder="Ex: José da Silva" matInput/>
+                        <input type="text" [(ngModel)]="cliente.nome" name="nome" placeholder="Ex: José da Silva" matInput/>
                     </mat-form-field>
 
                     <mat-form-field class="full-width">
                         <mat-label>Email: *</mat-label>
-                        <input type="email" placeholder="Digite seu email" matInput/>
+                        <input type="email" [(ngModel)]="cliente.email" name="email" placeholder="Digite seu email" matInput/>
                     </mat-form-field>
 
                     <mat-form-field style="width: 60%;">
                         <mat-label>CPF: *</mat-label>
-                        <input type="email" placeholder="Digite seu CPF" matInput/>
+                        <input type="email" [(ngModel)]="cliente.cpf" name="cpf" placeholder="Digite seu CPF" matInput/>
                     </mat-form-field>
 
                     <mat-form-field style="width: 50%;">
                         <mat-label>Data nascimento: *</mat-label>
-                        <input type="text" placeholder="Digite sua Data de Nascimento" matInput/>
+                        <input type="text" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" placeholder="Digite sua Data de Nascimento" matInput/>
                     </mat-form-field>
 
                 </mat-card-content>
