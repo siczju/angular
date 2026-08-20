@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { Cliente } from './cliente'
+import { ClienteService } from '../cliente.service'
 
 @Component({
   selector: 'app-cadastro',
@@ -16,4 +17,10 @@ import { Cliente } from './cliente'
 export class CadastroComponent {
 
   cliente: Cliente = Cliente.newCliente();
+
+  constructor(private service: ClienteService) { } // injentando o service de cliente
+
+  salvar(){
+    this.service.salvar(this.cliente);
+  }
 }

@@ -1,7 +1,7 @@
 <div class="cadastro-container">
     <div class="cadastro-column">
 
-        <form class="mt-60" #clientesFrm="ngForm">
+        <form class="mt-60" #clientesFrm="ngForm" (ngSubmit)="salvar()">
 
             <mat-card>
                 <mat-card-header>
@@ -22,7 +22,7 @@
 
                     <mat-form-field style="width: 60%;">
                         <mat-label>CPF: *</mat-label>
-                        <input type="email" [(ngModel)]="cliente.cpf" name="cpf" placeholder="Digite seu CPF" matInput/>
+                        <input type="text" [(ngModel)]="cliente.cpf" name="cpf" placeholder="Digite seu CPF" matInput/>
                     </mat-form-field>
 
                     <mat-form-field style="width: 50%;">
