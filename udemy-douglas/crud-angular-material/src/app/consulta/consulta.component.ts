@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -20,13 +21,15 @@ import { Cliente } from '../cadastro/cliente'
   templateUrl: './consulta.component.html',
   styleUrl: './consulta.component.scss'
 })
-export class ConsultaComponent {
+export class ConsultaComponent implements OnInit {
 
   listaClientes: Cliente[] = [];
+  colunasTabela: string[] = ["id", "nome", "cpf", "dataNascimento", "email"]
 
   constructor(private service: ClienteService) { } // injentando o service de cliente
 
   ngOnInit(){
+    console.log("banana");
     this.listaClientes = this.service.pesquisarClientes('');
   }
 
