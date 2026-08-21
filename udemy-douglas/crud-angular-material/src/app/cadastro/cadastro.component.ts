@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { Cliente } from './cliente'
 import { ClienteService } from '../cliente.service'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-cadastro',
@@ -20,7 +20,7 @@ export class CadastroComponent implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
 
-  constructor(private service: ClienteService, private route: ActivatedRoute) { } // injentando o service de cliente e o activatedRoute para pegar os parametros da url
+  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router) { } // injentando o service de cliente e o activatedRoute para pegar os parametros da url
 
   ngOnInit(): void{
 
@@ -44,7 +44,14 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar(){
-    this.service.salvar(this.cliente);
-    this.cliente = Cliente.newCliente();
+
+    if(!this.atualizando){
+      this.service.salvar(this.cliente);
+      this.cliente = Cliente.newCliente();
+      this.router.navigate(['/consulta']);
+    }else{
+      this.service.atualizar(this.cliente);
+      this.router.navigate(['/consulta']);
+    }
   }
 }
