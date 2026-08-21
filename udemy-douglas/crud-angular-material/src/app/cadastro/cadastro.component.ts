@@ -20,14 +20,16 @@ export class CadastroComponent implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
 
-  constructor(private service: ClienteService, private route: ActivatedRoute) { } // injentando o service de cliente
+  constructor(private service: ClienteService, private route: ActivatedRoute) { } // injentando o service de cliente e o activatedRoute para pegar os parametros da url
 
   ngOnInit(): void{
+
     this.route.queryParamMap.subscribe((query: any) => {
-        const params = query['params']
-        const id = params['id']
+        const id = query.get('id');
+
         if(id){
           let clienteEncontrado = this.service.buscarClientePorId(id);
+
           if(clienteEncontrado){
             this.atualizando = true;
             this.cliente = clienteEncontrado;
@@ -35,6 +37,10 @@ export class CadastroComponent implements OnInit {
           // this.cliente = this.service.buscarClientePorId(id) || Cliente.newCliente(); // se retornar o cliente retorna normal se retornar undefined retorna um novo cliente
         }
     })
+  }
+
+  atualizar(cliente: Cliente){
+    this.service.atualizar(cliente);
   }
 
   salvar(){

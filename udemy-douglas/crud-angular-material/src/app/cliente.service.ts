@@ -24,6 +24,15 @@ export class ClienteService {
     }
     return clientes.filter(cliente => cliente.nome?.toLowerCase().includes(nomeBusca)); // ou indexOf(nomeBusca) !== -1
   }
+ 
+  atualizar(cliente: Cliente){
+    const clientes = this.obterStorage();
+    const index = clientes.findIndex(c => c.id === cliente.id);
+
+    clientes[index] = cliente;
+
+    localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(clientes));
+  }
 
   buscarClientePorId(id: string): Cliente | undefined {
     const clientes = this.obterStorage();
