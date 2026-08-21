@@ -31,7 +31,6 @@ export class ConsultaComponent implements OnInit {
   constructor(private service: ClienteService, private router: Router) { } // injentando o service de cliente
 
   ngOnInit(){
-    console.log("banana");
     this.listaClientes = this.service.pesquisarClientes('');
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { Cliente } from './cliente'
 import { ClienteService } from '../cliente.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-cadastro',
@@ -14,13 +15,30 @@ import { ClienteService } from '../cliente.service'
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })
-export class CadastroComponent {
+export class CadastroComponent implements OnInit {
 
   cliente: Cliente = Cliente.newCliente();
+  atualizando: boolean = false;
 
-  constructor(private service: ClienteService) { } // injentando o service de cliente
+  constructor(private service: ClienteService, private route: ActivatedRoute) { } // injentando o service de cliente
+
+  ngOnInit(): void{
+    this.route.queryParamMap.subscribe((query: any) => {
+        const params = query['params']
+        const id = params['id']
+        if(id){
+          let clienteEncontrado = this.service.buscarClientePorId(id);
+          if(clienteEncontrado){
+            this.atualizando = true;
+            this.cliente = clienteEncontrado;
+          }
+          // this.cliente = this.service.buscarClientePorId(id) || Cliente.newCliente(); // se retornar o cliente retorna normal se retornar undefined retorna um novo cliente
+        }
+    })
+  }
 
   salvar(){
     this.service.salvar(this.cliente);
+    this.cliente = Cliente.newCliente();
   }
 }

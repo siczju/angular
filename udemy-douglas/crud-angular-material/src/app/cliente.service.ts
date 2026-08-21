@@ -15,7 +15,6 @@ export class ClienteService {
     storage.push(cliente);
 
     localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(storage));
-
   }
 
   pesquisarClientes(nomeBusca: string) : Cliente[]{
@@ -24,6 +23,11 @@ export class ClienteService {
       return clientes;
     }
     return clientes.filter(cliente => cliente.nome?.toLowerCase().includes(nomeBusca)); // ou indexOf(nomeBusca) !== -1
+  }
+
+  buscarClientePorId(id: string): Cliente | undefined {
+    const clientes = this.obterStorage();
+    return clientes.find(cliente => cliente.id === id);
   }
 
   private obterStorage(): Cliente[]{
