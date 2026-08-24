@@ -10,6 +10,8 @@ import { ClienteService } from '../cliente.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { BrasilapiService } from '../brasilapi.service'
+import { Estado, Municipio } from '../brasilapi.models'
 
 @Component({
   selector: 'app-cadastro',
@@ -24,8 +26,15 @@ export class CadastroComponent implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
   snack: MatSnackBar = inject(MatSnackBar);
+  estados: Estado[] = [];
+  municipios: Municipio[] = [];
 
-  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router) { } // injentando o service de cliente e o activatedRoute para pegar os parametros da url
+
+  constructor(
+    private service: ClienteService,
+    private brasilapiService: BrasilapiService,
+    private route: ActivatedRoute,
+    private router: Router) { } // injentando o service de cliente e o activatedRoute para pegar os parametros da url
 
   ngOnInit(): void{
 
@@ -41,6 +50,17 @@ export class CadastroComponent implements OnInit {
           }
           // this.cliente = this.service.buscarClientePorId(id) || Cliente.newCliente(); // se retornar o cliente retorna normal se retornar undefined retorna um novo cliente
         }
+    })
+
+    this.carregarUFs();
+
+  }
+
+  carregarUFs(){
+    // observable/subscriber é um objeto que representa uma coleção de valores futuros ou eventos. Ele é usado para lidar com operações assíncronas, como chamadas HTTP, eventos de usuário, etc. Um observable pode emitir múltiplos valores ao longo do tempo e os consumidores podem se inscrever para receber esses valores.
+    this.brasilapiService.listarUFs().subscribe({
+      next: listaEstados => this.estados = listaEstados,
+      error: erro => console.error("erro ao listar estados", erro)
     })
   }
 
