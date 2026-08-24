@@ -25,9 +25,18 @@
                         <input type="text" [(ngModel)]="cliente.cpf" name="cpf" mask="000.000.000-00" placeholder="Digite seu CPF" matInput/>
                     </mat-form-field>
 
-                    <mat-form-field style="width: 50%;">
+                    <mat-form-field style="width: 60%;">
                         <mat-label>Data nascimento: *</mat-label>
                         <input type="text" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" mask="00/00/0000" placeholder="Digite sua Data de Nascimento" matInput/>
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 60%;">
+                        <mat-label>UF: *</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let uf of estados" [value]="uf.sigla">
+                                {{ uf.sigla }} - {{ uf.nome }}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
 
                 </mat-card-content>

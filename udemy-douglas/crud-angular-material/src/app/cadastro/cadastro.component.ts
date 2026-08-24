@@ -10,13 +10,15 @@ import { ClienteService } from '../cliente.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSelectModule } from '@angular/material/select'
 import { BrasilapiService } from '../brasilapi.service'
 import { Estado, Municipio } from '../brasilapi.models'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-cadastro',
   imports: [MatButtonModule, MatIconModule, MatCardModule, FormsModule, MatFormFieldModule, MatInputModule,
-    NgxMaskDirective
+    NgxMaskDirective, MatSelectModule, CommonModule
   ], providers:[provideNgxMask()],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
