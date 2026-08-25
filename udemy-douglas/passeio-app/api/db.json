@@ -18,14 +18,6 @@
   ],
   "lugares": [
     {
-      "nome": "Shopping Eldorado",
-      "categoria": "Shoppings",
-      "localizacao": "São Paulo",
-      "urlFoto": "https://teste.com",
-      "avaliacao": "4",
-      "id": "RF8_jxWZZmk"
-    },
-    {
       "nome": "Praia do Espelho",
       "categoria": "Praias",
       "localizacao": "Bahia",
