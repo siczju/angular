@@ -18,18 +18,9 @@
   ],
   "lugares": [
     {
-      "id": "1",
       "nome": "Shopping Eldorado",
-      "categoria": {
-        "id": "2",
-        "nome": "Shoppings",
-        "descricao": "Lugares para fazer compras e passear"
-      }
-    },
-    {
-      "nome": "Shopping do zé",
       "categoria": "Shoppings",
-      "localizacao": "São Paulooo",
+      "localizacao": "São Paulo",
       "urlFoto": "https://teste.com",
       "avaliacao": "4",
       "id": "RF8_jxWZZmk"
