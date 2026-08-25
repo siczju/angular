@@ -1,9 +1,15 @@
 {
-    "categorias": [
-        {
-            "id": 1,
-            "nome": "Restaurantes",
-            "descricao": "Lugares para alimentação"
-        }
-    ]
+  "categorias": [
+    {
+      "id": "2",
+      "nome": "Shoppings",
+      "descricao": "Lugares para fazer compras e passear"
+    },
+    {
+      "id": "EZ7MJITkihY",
+      "nome": "asdada",
+      "descricao": "Lugares para fazer compras e passear"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
