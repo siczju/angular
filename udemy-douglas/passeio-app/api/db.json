@@ -16,5 +16,40 @@
       "id": "l-VtkYH5AL0"
     }
   ],
+  "lugares": [
+    {
+      "id": "1",
+      "nome": "Shopping Eldorado",
+      "categoria": {
+        "id": "2",
+        "nome": "Shoppings",
+        "descricao": "Lugares para fazer compras e passear"
+      }
+    },
+    {
+      "nome": "Shopping do zé",
+      "categoria": "Shoppings",
+      "localizacao": "São Paulooo",
+      "urlFoto": "https://teste.com",
+      "avaliacao": "4",
+      "id": "RF8_jxWZZmk"
+    },
+    {
+      "nome": "Praia do Espelho",
+      "categoria": "Praias",
+      "localizacao": "Bahia",
+      "urlFoto": "https://ateondeeupuderir.com/wp-content/uploads/2025/02/praia-do-espelho-capa.jpg",
+      "avaliacao": "4",
+      "id": "Z-us-R5z6dM"
+    },
+    {
+      "nome": "Shopping Catuai",
+      "categoria": "Shoppings",
+      "localizacao": "Paraná, Londrina.",
+      "urlFoto": "https://th.bing.com/th/id/OIP.ihDSeOP10JsgBKXPNtPGKgHaE8?w=272&h=182&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "avaliacao": "1",
+      "id": "xEfnpivaYw4"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
